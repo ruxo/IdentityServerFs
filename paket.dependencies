@@ -1,0 +1,10 @@
+source C:\Workspace\nuget
+source https://api.nuget.org/v3/index.json
+
+nuget FSharp.Core
+nuget IdentityServer4 4.1.3-alpha.1 prerelease
+nuget Microsoft.AspNetCore.Authentication.Google >= 6.0.0
+nuget Serilog.AspNetCore
+
+gist ruxo/a9244a6dfe5e73337261 fp.fs
+nuget Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
