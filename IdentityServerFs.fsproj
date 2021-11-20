@@ -8,6 +8,7 @@
       <Paket>True</Paket>
       <Link>paket-files/fp.fs</Link>
     </Compile>
+    <Compile Include="AuthorizationRequest.fs" />
     <Compile Include="IdentityServerHelper.fs" />
     <Compile Include="QuickStart\SecurityHeadersAttribute.fs" />
     <Compile Include="QuickStart\TestUsers.fs" />
@@ -17,14 +18,14 @@
     <Compile Include="QuickStart\Account\AccountOptions.fs" />
     <Compile Include="QuickStart\Account\Models.fs" />
     <Compile Include="QuickStart\Account\AccountController.fs" />
+    <Compile Include="QuickStart\Account\ExternalController.fs" />
     <Compile Include="QuickStart\Grants\GrantsViewModel.fs" />
     <Compile Include="QuickStart\Grants\GrantsController.fs" />
+    <Compile Include="QuickStart\Diagnostics\DiagnosticsViewModel.fs" />
+    <Compile Include="QuickStart\Diagnostics\DiagnosticsController.fs" />
     <Compile Include="Config.fs" />
     <Compile Include="Program.fs" />
     <Content Include="paket.references" />
-    <Content Update="wwwroot\favicon.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project=".paket\Paket.Restore.targets" />
 </Project>
