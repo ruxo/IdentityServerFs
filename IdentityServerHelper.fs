@@ -1,10 +1,11 @@
 ﻿module TiraxTech.IdentityServerHelper
 
-open System
 open IdentityServer4.Models
 open IdentityServer4.Services
 open IdentityServer4.Stores
 open Microsoft.AspNetCore.Authentication
+
+let inline (%?) (lhr: 'a) (rhs: 'a) = if lhr = null then rhs else lhr
 
 let getErrorContextAsync errorId (interaction: IIdentityServerInteractionService) =
     task {

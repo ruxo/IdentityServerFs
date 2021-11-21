@@ -8,6 +8,7 @@
       <Paket>True</Paket>
       <Link>paket-files/fp.fs</Link>
     </Compile>
+    <Compile Include="Helpers\ClaimsPrincipal.fs" />
     <Compile Include="AuthorizationRequest.fs" />
     <Compile Include="IdentityServerHelper.fs" />
     <Compile Include="QuickStart\SecurityHeadersAttribute.fs" />
@@ -17,6 +18,7 @@
     <Compile Include="QuickStart\Consent\ScopeViewModel.fs" />
     <Compile Include="QuickStart\Account\AccountOptions.fs" />
     <Compile Include="QuickStart\Account\Models.fs" />
+    <Compile Include="QuickStart\Account\AccountHelper.fs" />
     <Compile Include="QuickStart\Account\AccountController.fs" />
     <Compile Include="QuickStart\Account\ExternalController.fs" />
     <Compile Include="QuickStart\Grants\GrantsViewModel.fs" />

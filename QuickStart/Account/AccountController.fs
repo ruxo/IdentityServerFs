@@ -132,12 +132,6 @@ type AccountController(interaction: IIdentityServerInteractionService,
                         vm.ExternalAuthenticationScheme <- idp
             return vm
         }
-        
-    static let loadingPage(viewName, redirectUri) (controller: Controller) =
-        controller.HttpContext.Response.StatusCode <- 200
-        controller.HttpContext.Response.Headers["Location"] <- ""
-        
-        controller.View(viewName, RedirectViewModel(RedirectUrl = redirectUri))
     
     [<HttpPost>]
     [<ValidateAntiForgeryToken>]
@@ -170,7 +164,7 @@ type AccountController(interaction: IIdentityServerInteractionService,
         let isNativeClient = context.map(AuthorizationRequest.isNativeClient).getOrDefault(false)
         if context.IsSome then
             if isNativeClient
-            then (my |> loadingPage("Redirect", returnUrl)) :> IActionResult
+            then (my |> AccountHelper.loadingPage("Redirect", returnUrl)) :> IActionResult
             else my.Redirect(returnUrl)
         elif my.Url.IsLocalUrl(returnUrl) then
             my.Redirect(returnUrl)
@@ -206,7 +200,7 @@ type AccountController(interaction: IIdentityServerInteractionService,
             match context with
             | Some ctx -> do! interaction.DenyAuthorizationAsync(ctx, AuthorizationError.AccessDenied)
                           if ctx.isNativeClient()
-                          then return my |> loadingPage ("Redirect", model.ReturnUrl) :> IActionResult
+                          then return my |> AccountHelper.loadingPage ("Redirect", model.ReturnUrl) :> IActionResult
                           else return my.Redirect(model.ReturnUrl)
             | None -> return my.Redirect("~/")
             

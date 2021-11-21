@@ -1,6 +1,7 @@
 namespace IdentityServerFs
 
 #nowarn "20"
+open IdentityServer4
 open IdentityServerFs.QuickStart
 open Microsoft.AspNetCore.Builder
 open Microsoft.Extensions.DependencyInjection
@@ -49,7 +50,7 @@ module Program =
         builder.Services
                .AddAuthentication()
                .AddGoogle(fun options ->
-                   options.SignInScheme <- "IdentityServer"
+                   options.SignInScheme <- IdentityServerConstants.ExternalCookieAuthenticationScheme
                     
                    // register your IdentityServer with Google at https://console.developers.google.com
                    // enable the Google+ API

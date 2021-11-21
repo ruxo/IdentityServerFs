@@ -1,5 +1,6 @@
 ﻿module IdentityServerFs.Config
 
+open IdentityServer4
 open IdentityServer4.Models
 
 let IdentityResources: IdentityResource seq = [
@@ -23,10 +24,11 @@ let Clients: Client list = [
            ClientSecrets = [| Secret(Value = "secret".Sha256()) |],
            
            AllowedGrantTypes = GrantTypes.Code,
-           RedirectUris = [| "https://localhost:44300/signin-oidc" |],
-           FrontChannelLogoutUri = "https://localhost:44300/signout-oidc",
-           PostLogoutRedirectUris = [| "https://localhost:44300/signout-callback-oidc" |],
+           RedirectUris = [| "https://localhost:7295/signin-oidc" |],
+           PostLogoutRedirectUris = [| "https://localhost:7295/signout-callback-oidc" |],
            
            AllowOfflineAccess = true,
-           AllowedScopes = [| "openid"; "scope1"; "scope2" |])
+           AllowedScopes = [| IdentityServerConstants.StandardScopes.OpenId
+                              IdentityServerConstants.StandardScopes.Profile
+                           |])
 ]
