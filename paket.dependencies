@@ -8,3 +8,4 @@ nuget Serilog.AspNetCore
 
 gist ruxo/a9244a6dfe5e73337261 fp.fs
 nuget Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
+nuget FSharp.Control.AsyncSeq

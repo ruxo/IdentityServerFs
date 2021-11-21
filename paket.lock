@@ -1,5 +1,8 @@
 NUGET
   remote: https://api.nuget.org/v3/index.json
+    FSharp.Control.AsyncSeq (3.2.1)
+      FSharp.Core (>= 4.7.2) - restriction: >= netstandard2.0
+      Microsoft.Bcl.AsyncInterfaces (>= 5.0) - restriction: >= netstandard2.0
     FSharp.Core (6.0.1)
     IdentityModel (5.2) - restriction: >= net6.0
     IdentityServer4.Storage (4.1.2) - restriction: >= net6.0
@@ -28,7 +31,7 @@ NUGET
       Microsoft.CodeAnalysis.Razor (>= 6.0) - restriction: >= net6.0
       Microsoft.Extensions.DependencyModel (>= 6.0) - restriction: >= net6.0
     Microsoft.AspNetCore.Razor.Language (6.0) - restriction: >= net6.0
-    Microsoft.Bcl.AsyncInterfaces (6.0) - restriction: || (&& (>= net461) (>= netstandard2.0)) (&& (>= netstandard2.0) (< netstandard2.1))
+    Microsoft.Bcl.AsyncInterfaces (6.0) - restriction: >= netstandard2.0
       System.Threading.Tasks.Extensions (>= 4.5.4) - restriction: || (>= net461) (&& (>= netstandard2.0) (< netstandard2.1))
     Microsoft.CodeAnalysis.Analyzers (3.3.3) - restriction: >= net6.0
     Microsoft.CodeAnalysis.Common (4.0.1) - restriction: >= net6.0
@@ -192,4 +195,4 @@ NUGET
       Newtonsoft.Json (>= 12.0.2) - restriction: >= net6.0
 GIST
   remote: ruxo/a9244a6dfe5e73337261
-    fp.fs (0d32a17cabd994b2165505760639f357c0ad63bf)
+    fp.fs (fea2c38d1f4832775cc17ec282bc9ba5257ae22b)

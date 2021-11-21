@@ -1,4 +1,5 @@
-﻿@model GrantsViewModel
+﻿@using Microsoft.FSharp.Core
+@model GrantsViewModel
 
 <div class="grants-page">
     <div class="lead">
@@ -6,7 +7,7 @@
         <p>Below is the list of applications you have given permission to and the resources they have access to.</p>
     </div>
 
-    @if (Model.Grants.Any() == false)
+    @if (Model!.Grants.Any() == false)
     {
         <div class="row">
             <div class="col-sm-8">
@@ -24,9 +25,9 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-sm-8 card-title">
-                            @if (grant.ClientLogoUrl != null)
+                            @if (FSharpOption<string>.get_IsSome(grant.ClientLogoUrl))
                             {
-                                <img src="@grant.ClientLogoUrl">
+                                <img src="@grant.ClientLogoUrl.Value">
                             }
                             <strong>@grant.ClientName</strong>
                         </div>
@@ -41,16 +42,16 @@
                 </div>
                 
                 <ul class="list-group list-group-flush">
-                    @if (grant.Description != null)
+                    @if (FSharpOption<string>.get_IsSome(grant.Description))
                     {
                         <li class="list-group-item">
-                            <label>Description:</label> @grant.Description
+                            <label>Description:</label> @grant.Description.Value
                         </li>   
                     }
                     <li class="list-group-item">
                         <label>Created:</label> @grant.Created.ToString("yyyy-MM-dd")
                     </li>
-                    @if (grant.Expires.HasValue)
+                    @if (FSharpOption<DateTime>.get_IsSome(grant.Expires))
                     {
                         <li class="list-group-item">
                             <label>Expires:</label> @grant.Expires.Value.ToString("yyyy-MM-dd")

@@ -3,4 +3,5 @@ Microsoft.AspNetCore.Authentication.Google
 Serilog.AspNetCore
 FSharp.Core
 Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
+FSharp.Control.AsyncSeq
 File:fp.fs
