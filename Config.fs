@@ -3,9 +3,21 @@
 open IdentityServer4
 open IdentityServer4.Models
 
+let PartnerScopeName = "partner"
+type PartnerScope() as self =
+    inherit IdentityResource()
+    
+    do self.Name <- PartnerScopeName
+       self.DisplayName <- "Your partner"
+       self.Description <- "Your partner!"
+       self.Emphasize <- true
+       self.UserClaims <- [| "partner_name"; "marriage_time" |]
+
 let IdentityResources: IdentityResource seq = [
     IdentityResources.OpenId()
     IdentityResources.Profile()
+    IdentityResources.Email()
+    PartnerScope()
 ]
 
 let ApiScopes: ApiScope list = [
@@ -30,5 +42,7 @@ let Clients: Client list = [
            AllowOfflineAccess = true,
            AllowedScopes = [| IdentityServerConstants.StandardScopes.OpenId
                               IdentityServerConstants.StandardScopes.Profile
+                              IdentityServerConstants.StandardScopes.Email
+                              PartnerScopeName
                            |])
 ]

@@ -29,6 +29,8 @@ let defaultUser() =
             Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean)
             Claim(JwtClaimTypes.WebSite, "http://alice.com")
             Claim(JwtClaimTypes.Address, JsonSerializer.Serialize(address), IdentityServerConstants.ClaimValueTypes.Json)
+            Claim("partner_name", "celsi")
+            Claim("marriage_time", "1900-01-01T00:00:00Z", ClaimValueTypes.DateTime)
         ])
         createTestUser("88421113", "bob", "bob", [
             Claim(JwtClaimTypes.Name, "Bob Smith")
@@ -38,6 +40,8 @@ let defaultUser() =
             Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean)
             Claim(JwtClaimTypes.WebSite, "http://bob.com")
             Claim(JwtClaimTypes.Address, JsonSerializer.Serialize(address), IdentityServerConstants.ClaimValueTypes.Json)
+            Claim("partner_name", "alice")
+            Claim("marriage_time", "1900-01-01T00:00:00Z", ClaimValueTypes.DateTime)
         ])
     ])
 
